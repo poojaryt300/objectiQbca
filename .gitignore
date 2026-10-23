@@ -1,0 +1,42 @@
+# ── Python cache ──────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ── Virtual environments ───────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Build / distribution ───────────────────────
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ── YOLO model weights ─────────────────────────
+# NOTE: yolov8n.pt IS intentionally committed to this repo so
+# Streamlit Community Cloud can load it without downloading.
+# Only exclude other large / generated weight files below.
+*.onnx
+*.torchscript
+runs/          
+
+# ── Streamlit secrets & cache ──────────────────
+.streamlit/secrets.toml
+
+# ── IDE / editor ───────────────────────────────
+.vscode/
+.idea/
+
+# ── OS ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs & temp ───────────────────────────────
+*.log
+*.tmp
+*.temp

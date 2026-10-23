@@ -1,0 +1,32 @@
+# Netlify configuration for ObjectIQ landing page
+
+[build]
+  # This is a plain HTML site — no build command needed
+  publish = "."
+
+# Custom headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirect /app to the actual Streamlit deployment
+# Replace the URL below with your real Streamlit / Hugging Face URL
+[[redirects]]
+  from = "/app"
+  to   = "https://YOUR-APP-URL-HERE"
+  status = 302
+
+# Handle 404 gracefully
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
